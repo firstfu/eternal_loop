@@ -11,6 +11,20 @@ import UIKit
 /// Utility for loading 3D ring models with fallback support
 class ModelLoader {
 
+    // MARK: - Helper Methods
+
+    /// Generates a ring band mesh compatible with iOS 17+
+    /// Uses torus-like approximation with box on iOS 17, cylinder on iOS 18+
+    private func generateRingBandMesh(height: Float, radius: Float) -> MeshResource {
+        if #available(iOS 18.0, *) {
+            return MeshResource.generateCylinder(height: height, radius: radius)
+        } else {
+            // Fallback: use a thin box stretched into a ring shape
+            // This creates a simpler approximation that works on iOS 17
+            return MeshResource.generateBox(size: SIMD3<Float>(radius * 2, height, radius * 2), cornerRadius: radius * 0.8)
+        }
+    }
+
     // MARK: - Singleton
 
     static let shared = ModelLoader()
@@ -126,7 +140,7 @@ class ModelLoader {
     /// Classic solitaire - gold band with a diamond-like gem on top
     private func generateClassicSolitaire() -> ModelEntity {
         // Ring band (using cylinder rotated to simulate a ring)
-        let bandMesh = MeshResource.generateCylinder(height: 0.004, radius: 0.01)
+        let bandMesh = generateRingBandMesh(height: 0.004, radius: 0.01)
         let goldMaterial = SimpleMaterial(
             color: .init(red: 1.0, green: 0.84, blue: 0.0, alpha: 1.0),
             roughness: 0.3,
@@ -156,7 +170,7 @@ class ModelLoader {
     /// Halo luxury - gold band with center stone surrounded by smaller stones
     private func generateHaloLuxury() -> ModelEntity {
         // Ring band
-        let bandMesh = MeshResource.generateCylinder(height: 0.005, radius: 0.01)
+        let bandMesh = generateRingBandMesh(height: 0.005, radius: 0.01)
         let goldMaterial = SimpleMaterial(
             color: .init(red: 1.0, green: 0.78, blue: 0.0, alpha: 1.0),
             roughness: 0.2,
@@ -199,7 +213,7 @@ class ModelLoader {
 
     /// Minimalist band - simple polished metal ring
     private func generateMinimalistBand() -> ModelEntity {
-        let bandMesh = MeshResource.generateCylinder(height: 0.006, radius: 0.01)
+        let bandMesh = generateRingBandMesh(height: 0.006, radius: 0.01)
         let platinumMaterial = SimpleMaterial(
             color: .init(red: 0.9, green: 0.9, blue: 0.92, alpha: 1.0),
             roughness: 0.1,
@@ -214,7 +228,7 @@ class ModelLoader {
     /// Rose gold heart - romantic rose gold with heart-shaped stone
     private func generateRoseGoldHeart() -> ModelEntity {
         // Rose gold band
-        let bandMesh = MeshResource.generateCylinder(height: 0.004, radius: 0.01)
+        let bandMesh = generateRingBandMesh(height: 0.004, radius: 0.01)
         let roseGoldMaterial = SimpleMaterial(
             color: .init(red: 0.72, green: 0.43, blue: 0.47, alpha: 1.0),
             roughness: 0.25,
@@ -248,7 +262,7 @@ class ModelLoader {
     /// Eternity band - continuous diamonds around the band
     private func generateEternityBand() -> ModelEntity {
         // Silver/white gold band
-        let bandMesh = MeshResource.generateCylinder(height: 0.005, radius: 0.01)
+        let bandMesh = generateRingBandMesh(height: 0.005, radius: 0.01)
         let silverMaterial = SimpleMaterial(
             color: .init(red: 0.75, green: 0.75, blue: 0.78, alpha: 1.0),
             roughness: 0.15,
@@ -287,7 +301,7 @@ class ModelLoader {
     /// Vintage Art Deco - ornate vintage style with geometric patterns
     private func generateVintageArtDeco() -> ModelEntity {
         // Antique gold band
-        let bandMesh = MeshResource.generateCylinder(height: 0.006, radius: 0.01)
+        let bandMesh = generateRingBandMesh(height: 0.006, radius: 0.01)
         let antiqueGoldMaterial = SimpleMaterial(
             color: .init(red: 0.81, green: 0.71, blue: 0.23, alpha: 1.0),
             roughness: 0.35,

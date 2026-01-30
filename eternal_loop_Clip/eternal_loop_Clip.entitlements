@@ -6,9 +6,9 @@
     <array>
         <string>appclips:eternalloop.app</string>
     </array>
-    <key>com.apple.developer.parent-application-identifiers</key>
+    <key>com.apple.security.application-groups</key>
     <array>
-        <string>$(AppIdentifierPrefix)com.firstfu.com.eternal-loop</string>
+        <string>group.com.eternal-loop</string>
     </array>
 </dict>
 </plist>

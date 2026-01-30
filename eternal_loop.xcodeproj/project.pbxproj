@@ -6,7 +6,39 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		01A9013F3AE65FCFAC5557B5 /* HandTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D9877F98AF7ED8555F5D1A /* HandTrackingManager.swift */; };
+		0943FE6DB9E4DBA8F7E60D76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEFCE4204C3A7707B4708234 /* Foundation.framework */; };
+		0C4BD99122DFF7315886EA1D /* AnimationEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56678C3454C75FBCB3658897 /* AnimationEffects.swift */; };
+		23F406EF78A85E0A084A12D5 /* EternalLoopWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDCAA2CEC7924AE53DC628 /* EternalLoopWidget.swift */; };
+		4927723EC6EDE8539BDDEB40 /* RingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CC1A6109059273BF66C7 /* RingType.swift */; };
+		4B8C7F80EF9ABC9B13D86E0C /* RingTransferAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BB5A8BB8F387CA8A83000A /* RingTransferAnimation.swift */; };
+		74F98A890140394941B1E0B3 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EEC7F36BF4FA507ADB05B6 /* PrimaryButton.swift */; };
+		787A1AE2025F59FCE8067C8F /* AppClipContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E78D6F6246C705114AAA1 /* AppClipContentView.swift */; };
+		7A92CFC19D8D7EF57AE9C731 /* NearbyInteractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512B26806D52EE692B656252 /* NearbyInteractionManager.swift */; };
+		87359AEC4BE209B718123C73 /* CeremonyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D242BBE9ACA81AF20672E7D /* CeremonyMessage.swift */; };
+		8895BD10CA53295869730F61 /* CeremonyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985D1248DA06765A6DFFC67E /* CeremonyState.swift */; };
+		8E8FAB71FDDE480255B10035 /* GuestCeremonyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE62E062C71EB5F57C041A /* GuestCeremonyView.swift */; };
+		8FC91DD24BEDD0C88A30F9C4 /* ModelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7709999F36F9B0C4808BA8BD /* ModelLoader.swift */; };
+		99044895DFFD3CC57070748D /* ARRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB629722E8B19A6623094739 /* ARRingView.swift */; };
+		9CA3E4FA28EC0BCA1981E49C /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207ED29BD1C725B7C8FCC4B6 /* Spacing.swift */; };
+		A59D435576F5D9E1BDA409FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEFCE4204C3A7707B4708234 /* Foundation.framework */; };
+		A75A618ABA934953888868F6 /* eternal_loop_ClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498A39EB07A7CCE0688067B /* eternal_loop_ClipApp.swift */; };
+		BB3FFA4642B90DA86B50D347 /* MultipeerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FD6623BF45D9688EB0FDA /* MultipeerManager.swift */; };
+		C17139067E027B6A10FA061D /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BB11DE074D0D943F7BD81F /* Typography.swift */; };
+		DA2D68648A929CB4BA9E3C90 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83F78697A38CBFDBE968C34 /* Colors.swift */; };
+		DD9AF20D1E25D7BC15BBE97F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5CC77E11E10AE64A85749C6 /* Assets.xcassets */; };
+		DEF6EFB51B9E208C7899B75F /* HeartbeatHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AEB5C805C03F80F524AFF /* HeartbeatHaptics.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
+		17ECB330EA8C8AB5A224EA90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77B58FAC2F2BDDE10099E5DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 770F2655546885926BBC12AE;
+			remoteInfo = EternalLoopWidget;
+		};
 		77B58FC62F2BDDE30099E5DA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 77B58FAC2F2BDDE10099E5DA /* Project object */;
@@ -21,12 +53,67 @@
 			remoteGlobalIDString = 77B58FB32F2BDDE10099E5DA;
 			remoteInfo = eternal_loop;
 		};
+		FB70112D31EBD92B1728837B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77B58FAC2F2BDDE10099E5DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43F9645BB4BCE4F7C30082B5;
+			remoteInfo = eternal_loop_Clip;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2264A77D7E9118F0AE4401ED /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed App Clips";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		896612BE111DC28D61D5797E /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0498A39EB07A7CCE0688067B /* eternal_loop_ClipApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = eternal_loop_ClipApp.swift; path = eternal_loop_ClipApp.swift; sourceTree = "<group>"; };
+		16BB11DE074D0D943F7BD81F /* Typography.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typography.swift; path = eternal_loop/Core/DesignSystem/Typography.swift; sourceTree = "<group>"; };
+		19BB5A8BB8F387CA8A83000A /* RingTransferAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RingTransferAnimation.swift; path = eternal_loop/Features/Ceremony/RingTransferAnimation.swift; sourceTree = "<group>"; };
+		207ED29BD1C725B7C8FCC4B6 /* Spacing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Spacing.swift; path = eternal_loop/Core/DesignSystem/Spacing.swift; sourceTree = "<group>"; };
+		512B26806D52EE692B656252 /* NearbyInteractionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NearbyInteractionManager.swift; path = eternal_loop/Core/Connectivity/NearbyInteractionManager.swift; sourceTree = "<group>"; };
+		56678C3454C75FBCB3658897 /* AnimationEffects.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimationEffects.swift; path = eternal_loop/Core/Animation/AnimationEffects.swift; sourceTree = "<group>"; };
+		6C02FE1514799CE20AAFD1D8 /* eternal_loop_Clip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eternal_loop_Clip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D242BBE9ACA81AF20672E7D /* CeremonyMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CeremonyMessage.swift; path = eternal_loop/Core/Models/CeremonyMessage.swift; sourceTree = "<group>"; };
+		7709999F36F9B0C4808BA8BD /* ModelLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModelLoader.swift; path = eternal_loop/Core/Utils/ModelLoader.swift; sourceTree = "<group>"; };
+		779AEB5C805C03F80F524AFF /* HeartbeatHaptics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeartbeatHaptics.swift; path = eternal_loop/Core/Haptics/HeartbeatHaptics.swift; sourceTree = "<group>"; };
 		77B58FB42F2BDDE10099E5DA /* eternal_loop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eternal_loop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B58FC52F2BDDE30099E5DA /* eternal_loopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eternal_loopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B58FCF2F2BDDE30099E5DA /* eternal_loopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eternal_loopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		840E78D6F6246C705114AAA1 /* AppClipContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppClipContentView.swift; path = AppClipContentView.swift; sourceTree = "<group>"; };
+		85DE62E062C71EB5F57C041A /* GuestCeremonyView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuestCeremonyView.swift; path = eternal_loop/Features/Ceremony/GuestCeremonyView.swift; sourceTree = "<group>"; };
+		8ABF3ACA66A4F7AA468008F8 /* EternalLoopWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EternalLoopWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BEE9D8A8AD0A18761062914 /* EternalLoopWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EternalLoopWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		985D1248DA06765A6DFFC67E /* CeremonyState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CeremonyState.swift; path = eternal_loop/Core/Models/CeremonyState.swift; sourceTree = "<group>"; };
+		9B7FD6623BF45D9688EB0FDA /* MultipeerManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipeerManager.swift; path = eternal_loop/Core/Connectivity/MultipeerManager.swift; sourceTree = "<group>"; };
+		A5CC77E11E10AE64A85749C6 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Assets.xcassets; sourceTree = "<group>"; };
+		A83F78697A38CBFDBE968C34 /* Colors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = eternal_loop/Core/DesignSystem/Colors.swift; sourceTree = "<group>"; };
+		B6EEC7F36BF4FA507ADB05B6 /* PrimaryButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PrimaryButton.swift; path = eternal_loop/Features/Components/PrimaryButton.swift; sourceTree = "<group>"; };
+		C4D9877F98AF7ED8555F5D1A /* HandTrackingManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HandTrackingManager.swift; path = eternal_loop/Core/AR/HandTrackingManager.swift; sourceTree = "<group>"; };
+		CB629722E8B19A6623094739 /* ARRingView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ARRingView.swift; path = eternal_loop/Features/AR/ARRingView.swift; sourceTree = "<group>"; };
+		D012CC1A6109059273BF66C7 /* RingType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RingType.swift; path = eternal_loop/Core/Models/RingType.swift; sourceTree = "<group>"; };
+		D3BDCAA2CEC7924AE53DC628 /* EternalLoopWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EternalLoopWidget.swift; path = EternalLoopWidget.swift; sourceTree = "<group>"; };
+		E34337678B9A74013161D6D0 /* eternal_loop_Clip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eternal_loop_Clip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEFCE4204C3A7707B4708234 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -50,17 +137,29 @@
 		};
 		77B58FC82F2BDDE30099E5DA /* eternal_loopTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = eternal_loopTests;
 			sourceTree = "<group>";
 		};
 		77B58FD22F2BDDE30099E5DA /* eternal_loopUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = eternal_loopUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		080F7F8EC067E620870599E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0943FE6DB9E4DBA8F7E60D76 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		77B58FB12F2BDDE10099E5DA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -82,9 +181,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8DD0D4B9571E648A064B2FF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A59D435576F5D9E1BDA409FF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02B35169948FC5738505D116 /* EternalLoopWidget */ = {
+			isa = PBXGroup;
+			children = (
+				D3BDCAA2CEC7924AE53DC628 /* EternalLoopWidget.swift */,
+			);
+			name = EternalLoopWidget;
+			path = EternalLoopWidget;
+			sourceTree = "<group>";
+		};
+		46B506241A07DE341FB7F9FD /* eternal_loop_Clip */ = {
+			isa = PBXGroup;
+			children = (
+				0498A39EB07A7CCE0688067B /* eternal_loop_ClipApp.swift */,
+				840E78D6F6246C705114AAA1 /* AppClipContentView.swift */,
+				A5CC77E11E10AE64A85749C6 /* Assets.xcassets */,
+			);
+			name = eternal_loop_Clip;
+			path = eternal_loop_Clip;
+			sourceTree = "<group>";
+		};
 		77B58FAB2F2BDDE10099E5DA = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +219,25 @@
 				77B58FC82F2BDDE30099E5DA /* eternal_loopTests */,
 				77B58FD22F2BDDE30099E5DA /* eternal_loopUITests */,
 				77B58FB52F2BDDE10099E5DA /* Products */,
+				9BE07E09F9B67187C22F4B3E /* Frameworks */,
+				02B35169948FC5738505D116 /* EternalLoopWidget */,
+				46B506241A07DE341FB7F9FD /* eternal_loop_Clip */,
+				A83F78697A38CBFDBE968C34 /* Colors.swift */,
+				207ED29BD1C725B7C8FCC4B6 /* Spacing.swift */,
+				16BB11DE074D0D943F7BD81F /* Typography.swift */,
+				985D1248DA06765A6DFFC67E /* CeremonyState.swift */,
+				6D242BBE9ACA81AF20672E7D /* CeremonyMessage.swift */,
+				D012CC1A6109059273BF66C7 /* RingType.swift */,
+				9B7FD6623BF45D9688EB0FDA /* MultipeerManager.swift */,
+				512B26806D52EE692B656252 /* NearbyInteractionManager.swift */,
+				779AEB5C805C03F80F524AFF /* HeartbeatHaptics.swift */,
+				85DE62E062C71EB5F57C041A /* GuestCeremonyView.swift */,
+				CB629722E8B19A6623094739 /* ARRingView.swift */,
+				19BB5A8BB8F387CA8A83000A /* RingTransferAnimation.swift */,
+				B6EEC7F36BF4FA507ADB05B6 /* PrimaryButton.swift */,
+				C4D9877F98AF7ED8555F5D1A /* HandTrackingManager.swift */,
+				56678C3454C75FBCB3658897 /* AnimationEffects.swift */,
+				7709999F36F9B0C4808BA8BD /* ModelLoader.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,9 +251,59 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7E25B75096E6ADB92D2E2E0F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				EEFCE4204C3A7707B4708234 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		9BE07E09F9B67187C22F4B3E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E25B75096E6ADB92D2E2E0F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		43F9645BB4BCE4F7C30082B5 /* eternal_loop_Clip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA87DB8309BE7F00A7175F62 /* Build configuration list for PBXNativeTarget "eternal_loop_Clip" */;
+			buildPhases = (
+				0FBDA240568FD3A88D76755D /* Sources */,
+				8DD0D4B9571E648A064B2FF0 /* Frameworks */,
+				F2AAA2B946A41F1B8030FF84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = eternal_loop_Clip;
+			productName = eternal_loop_Clip;
+			productReference = E34337678B9A74013161D6D0 /* eternal_loop_Clip.app */;
+			productType = "com.apple.product-type.application";
+		};
+		770F2655546885926BBC12AE /* EternalLoopWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B51A449F57425B60E1570E66 /* Build configuration list for PBXNativeTarget "EternalLoopWidget" */;
+			buildPhases = (
+				6CB2B6B62A2A33B429D5EB2C /* Sources */,
+				080F7F8EC067E620870599E9 /* Frameworks */,
+				54FA312E6307B0F80755B9E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EternalLoopWidget;
+			productName = EternalLoopWidget;
+			productReference = 8BEE9D8A8AD0A18761062914 /* EternalLoopWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		77B58FB32F2BDDE10099E5DA /* eternal_loop */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77B58FD82F2BDDE30099E5DA /* Build configuration list for PBXNativeTarget "eternal_loop" */;
@@ -115,17 +311,19 @@
 				77B58FB02F2BDDE10099E5DA /* Sources */,
 				77B58FB12F2BDDE10099E5DA /* Frameworks */,
 				77B58FB22F2BDDE10099E5DA /* Resources */,
+				896612BE111DC28D61D5797E /* Embed Foundation Extensions */,
+				2264A77D7E9118F0AE4401ED /* Embed App Clips */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3A8828C8A9DD733E703D1A9D /* PBXTargetDependency */,
+				9F867E6D81BF08344AA9186A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				77B58FB62F2BDDE10099E5DA /* eternal_loop */,
 			);
 			name = eternal_loop;
-			packageProductDependencies = (
-			);
 			productName = eternal_loop;
 			productReference = 77B58FB42F2BDDE10099E5DA /* eternal_loop.app */;
 			productType = "com.apple.product-type.application";
@@ -147,8 +345,6 @@
 				77B58FC82F2BDDE30099E5DA /* eternal_loopTests */,
 			);
 			name = eternal_loopTests;
-			packageProductDependencies = (
-			);
 			productName = eternal_loopTests;
 			productReference = 77B58FC52F2BDDE30099E5DA /* eternal_loopTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -170,8 +366,6 @@
 				77B58FD22F2BDDE30099E5DA /* eternal_loopUITests */,
 			);
 			name = eternal_loopUITests;
-			packageProductDependencies = (
-			);
 			productName = eternal_loopUITests;
 			productReference = 77B58FCF2F2BDDE30099E5DA /* eternal_loopUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -216,11 +410,20 @@
 				77B58FB32F2BDDE10099E5DA /* eternal_loop */,
 				77B58FC42F2BDDE30099E5DA /* eternal_loopTests */,
 				77B58FCE2F2BDDE30099E5DA /* eternal_loopUITests */,
+				770F2655546885926BBC12AE /* EternalLoopWidget */,
+				43F9645BB4BCE4F7C30082B5 /* eternal_loop_Clip */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		54FA312E6307B0F80755B9E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		77B58FB22F2BDDE10099E5DA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,9 +445,50 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F2AAA2B946A41F1B8030FF84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD9AF20D1E25D7BC15BBE97F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0FBDA240568FD3A88D76755D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A75A618ABA934953888868F6 /* eternal_loop_ClipApp.swift in Sources */,
+				787A1AE2025F59FCE8067C8F /* AppClipContentView.swift in Sources */,
+				DA2D68648A929CB4BA9E3C90 /* Colors.swift in Sources */,
+				9CA3E4FA28EC0BCA1981E49C /* Spacing.swift in Sources */,
+				C17139067E027B6A10FA061D /* Typography.swift in Sources */,
+				8895BD10CA53295869730F61 /* CeremonyState.swift in Sources */,
+				87359AEC4BE209B718123C73 /* CeremonyMessage.swift in Sources */,
+				4927723EC6EDE8539BDDEB40 /* RingType.swift in Sources */,
+				BB3FFA4642B90DA86B50D347 /* MultipeerManager.swift in Sources */,
+				7A92CFC19D8D7EF57AE9C731 /* NearbyInteractionManager.swift in Sources */,
+				DEF6EFB51B9E208C7899B75F /* HeartbeatHaptics.swift in Sources */,
+				8E8FAB71FDDE480255B10035 /* GuestCeremonyView.swift in Sources */,
+				99044895DFFD3CC57070748D /* ARRingView.swift in Sources */,
+				4B8C7F80EF9ABC9B13D86E0C /* RingTransferAnimation.swift in Sources */,
+				74F98A890140394941B1E0B3 /* PrimaryButton.swift in Sources */,
+				01A9013F3AE65FCFAC5557B5 /* HandTrackingManager.swift in Sources */,
+				0C4BD99122DFF7315886EA1D /* AnimationEffects.swift in Sources */,
+				8FC91DD24BEDD0C88A30F9C4 /* ModelLoader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CB2B6B62A2A33B429D5EB2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23F406EF78A85E0A084A12D5 /* EternalLoopWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		77B58FB02F2BDDE10099E5DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,6 +513,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3A8828C8A9DD733E703D1A9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EternalLoopWidget;
+			target = 770F2655546885926BBC12AE /* EternalLoopWidget */;
+			targetProxy = 17ECB330EA8C8AB5A224EA90 /* PBXContainerItemProxy */;
+		};
 		77B58FC72F2BDDE30099E5DA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 77B58FB32F2BDDE10099E5DA /* eternal_loop */;
@@ -279,9 +529,40 @@
 			target = 77B58FB32F2BDDE10099E5DA /* eternal_loop */;
 			targetProxy = 77B58FD02F2BDDE30099E5DA /* PBXContainerItemProxy */;
 		};
+		9F867E6D81BF08344AA9186A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = eternal_loop_Clip;
+			target = 43F9645BB4BCE4F7C30082B5 /* eternal_loop_Clip */;
+			targetProxy = FB70112D31EBD92B1728837B /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		6A0E2EE8E62E4F86B809E167 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = EternalLoopWidget/EternalLoopWidget.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = EternalLoopWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.firstfu.com.eternal-loop.Widget";
+				PRODUCT_NAME = EternalLoopWidget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		77B58FD92F2BDDE30099E5DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -561,6 +842,79 @@
 			};
 			name = Release;
 		};
+		B69DFF1D9FFDC30E77764373 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = eternal_loop_Clip/eternal_loop_Clip.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = eternal_loop_Clip/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.firstfu.com.eternal-loop.Clip";
+				PRODUCT_NAME = eternal_loop_Clip;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA93D7B7DF250C9790C3F27E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = eternal_loop_Clip/eternal_loop_Clip.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = eternal_loop_Clip/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.firstfu.com.eternal-loop.Clip";
+				PRODUCT_NAME = eternal_loop_Clip;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D622B23625A8B96A91D1787D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = EternalLoopWidget/EternalLoopWidget.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = EternalLoopWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.firstfu.com.eternal-loop.Widget";
+				PRODUCT_NAME = EternalLoopWidget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -596,6 +950,24 @@
 			buildConfigurations = (
 				77B58FE12F2BDDE30099E5DA /* Debug */,
 				77B58FE22F2BDDE30099E5DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B51A449F57425B60E1570E66 /* Build configuration list for PBXNativeTarget "EternalLoopWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A0E2EE8E62E4F86B809E167 /* Release */,
+				D622B23625A8B96A91D1787D /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA87DB8309BE7F00A7175F62 /* Build configuration list for PBXNativeTarget "eternal_loop_Clip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B69DFF1D9FFDC30E77764373 /* Release */,
+				CA93D7B7DF250C9790C3F27E /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
