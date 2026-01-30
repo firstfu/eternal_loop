@@ -10,6 +10,8 @@ struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \ProposalSession.createdAt, order: .reverse) private var sessions: [ProposalSession]
 
+    var onStartSetup: (() -> Void)?
+
     @State private var navigateToSetup = false
 
     var body: some View {
@@ -58,7 +60,11 @@ struct HomeView: View {
 
                     VStack(spacing: Spacing.md) {
                         PrimaryButton(title: "開始準備求婚") {
-                            navigateToSetup = true
+                            if let onStartSetup = onStartSetup {
+                                onStartSetup()
+                            } else {
+                                navigateToSetup = true
+                            }
                         }
                         .accessibilityIdentifier("startProposalButton")
 
@@ -75,7 +81,7 @@ struct HomeView: View {
                 }
             }
             .navigationDestination(isPresented: $navigateToSetup) {
-                SetupFlowView()
+                SetupFlowView(onComplete: nil, onBack: nil)
             }
         }
     }

@@ -7,10 +7,41 @@ import SwiftUI
 
 struct QRGeneratorView: View {
     let sessionId: UUID
+    var hostNickname: String = ""
+    var guestNickname: String = ""
+    var onStartCeremony: (() -> Void)?
+    var onBack: (() -> Void)?
+
+    // Legacy initializer support
     let onConnected: () -> Void
 
+    @Environment(\.dismiss) private var dismiss
     @State private var qrImage: UIImage?
     @State private var isConnecting = false
+
+    init(sessionId: UUID, onConnected: @escaping () -> Void) {
+        self.sessionId = sessionId
+        self.onConnected = onConnected
+        self.hostNickname = ""
+        self.guestNickname = ""
+        self.onStartCeremony = nil
+        self.onBack = nil
+    }
+
+    init(
+        sessionId: UUID,
+        hostNickname: String,
+        guestNickname: String,
+        onStartCeremony: @escaping () -> Void,
+        onBack: @escaping () -> Void
+    ) {
+        self.sessionId = sessionId
+        self.hostNickname = hostNickname
+        self.guestNickname = guestNickname
+        self.onStartCeremony = onStartCeremony
+        self.onBack = onBack
+        self.onConnected = onStartCeremony
+    }
 
     var body: some View {
         ZStack {
@@ -19,6 +50,15 @@ struct QRGeneratorView: View {
 
             VStack(spacing: Spacing.xl) {
                 Spacer()
+
+                // Session info header
+                if !hostNickname.isEmpty || !guestNickname.isEmpty {
+                    VStack(spacing: Spacing.sm) {
+                        Text("\(hostNickname) & \(guestNickname)")
+                            .font(.headingMedium)
+                            .foregroundColor(.appAccentGold)
+                    }
+                }
 
                 Text("請對方掃描這個 QR Code")
                     .font(.headingMedium)
@@ -70,7 +110,11 @@ struct QRGeneratorView: View {
                 HStack {
                     Spacer()
                     ManualTriggerButton {
-                        onConnected()
+                        if let onStartCeremony = onStartCeremony {
+                            onStartCeremony()
+                        } else {
+                            onConnected()
+                        }
                     }
                     .padding(Spacing.xl)
                 }
@@ -78,6 +122,16 @@ struct QRGeneratorView: View {
         }
         .navigationTitle("步驟 3/3")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            if onBack != nil {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("返回") {
+                        onBack?()
+                    }
+                    .foregroundColor(.appTextSecondary)
+                }
+            }
+        }
         .onAppear {
             qrImage = QRCodeGenerator.generate(sessionId: sessionId)
             isConnecting = true
