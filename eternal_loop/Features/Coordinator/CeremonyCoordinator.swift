@@ -5,6 +5,7 @@
 
 import SwiftUI
 import Observation
+import WidgetKit
 
 @Observable
 class CeremonyCoordinator {
@@ -148,7 +149,21 @@ class CeremonyCoordinator {
         // Mark session complete
         currentSession?.completedAt = Date()
 
+        // Save data for Widget
+        saveWidgetData()
+
         currentScreen = .certificate
+    }
+
+    // MARK: - Widget Data
+
+    private func saveWidgetData() {
+        let userDefaults = UserDefaults(suiteName: "group.com.eternal-loop")
+        userDefaults?.set(guestNickname, forKey: "partnerName")
+        userDefaults?.set(Date(), forKey: "ceremonyDate")
+
+        // Notify Widget to update
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     @MainActor
