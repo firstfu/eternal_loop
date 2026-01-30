@@ -15,6 +15,7 @@ struct HomeView: View {
 
     @State private var navigateToSetup = false
     @State private var navigateToHistory = false
+    @State private var showSettings = false
 
     var body: some View {
         NavigationStack {
@@ -91,6 +92,19 @@ struct HomeView: View {
             }
             .navigationDestination(isPresented: $navigateToHistory) {
                 HistoryView()
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showSettings = true
+                    } label: {
+                        Image(systemName: "gearshape")
+                            .foregroundColor(.appTextSecondary)
+                    }
+                }
+            }
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
             }
         }
     }

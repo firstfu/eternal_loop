@@ -12,6 +12,7 @@ extension Font {
     // Headings - Elegant serif
     static let headingLarge = Font.system(size: 28, weight: .light, design: .serif)
     static let headingMedium = Font.system(size: 22, weight: .light, design: .serif)
+    static let headingSmall = Font.system(size: 18, weight: .medium, design: .serif)
 
     // Body
     static let bodyLarge = Font.system(size: 17, weight: .regular, design: .serif)

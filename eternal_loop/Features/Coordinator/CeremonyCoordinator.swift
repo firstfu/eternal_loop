@@ -41,6 +41,7 @@ class CeremonyCoordinator {
     private var nearbyManager = NearbyInteractionManager()
     private var haptics = HeartbeatHaptics()
     private let certificateGenerator = CertificateGenerator()
+    private let audioManager = AudioManager.shared
 
     // MARK: - Setup Data
 
@@ -116,6 +117,9 @@ class CeremonyCoordinator {
             multipeerManager?.startAdvertising(sessionId: session.id)
         }
 
+        // Start romantic background music
+        audioManager.startCeremonyAmbiance()
+
         currentScreen = .hostCeremony
     }
 
@@ -135,6 +139,9 @@ class CeremonyCoordinator {
         ceremonyState.phase = .complete
         multipeerManager?.send(.ceremonyComplete)
         haptics.playRingAttachedCelebration()
+
+        // Transition to celebration music
+        audioManager.transitionToCelebration()
 
         // Mark session complete
         currentSession?.completedAt = Date()
@@ -160,6 +167,7 @@ class CeremonyCoordinator {
         multipeerManager?.disconnect()
         nearbyManager.stop()
         haptics.stopHeartbeat()
+        audioManager.stopAllAudio()
 
         // Reset state
         ceremonyState = CeremonyState()
