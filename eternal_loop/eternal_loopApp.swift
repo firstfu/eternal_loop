@@ -2,8 +2,6 @@
 //  eternal_loopApp.swift
 //  eternal_loop
 //
-//  Created by firstfu on 2026/1/30.
-//
 
 import SwiftUI
 import SwiftData
@@ -12,7 +10,7 @@ import SwiftData
 struct eternal_loopApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            ProposalSession.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
