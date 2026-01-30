@@ -126,6 +126,7 @@ struct HostCeremonyView: View {
             Image(systemName: "chevron.up")
                 .font(.system(size: 24))
                 .foregroundColor(.appAccent)
+                .floating(amplitude: 8, duration: 1.2)
 
             Text("向上滑動送出戒指")
                 .font(.bodyMedium)

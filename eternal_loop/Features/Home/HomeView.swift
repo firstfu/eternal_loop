@@ -26,28 +26,8 @@ struct HomeView: View {
                 VStack(spacing: Spacing.xxl) {
                     Spacer()
 
-                    ZStack {
-                        Circle()
-                            .fill(
-                                RadialGradient(
-                                    colors: [.appPrimaryLight.opacity(0.3), .clear],
-                                    center: .center,
-                                    startRadius: 0,
-                                    endRadius: 100
-                                )
-                            )
-                            .frame(width: 200, height: 200)
-
-                        Image(systemName: "ring.circle")
-                            .font(.system(size: 80))
-                            .foregroundStyle(
-                                LinearGradient(
-                                    colors: [.appAccentGold, .appAccent],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                    }
+                    RingGlowView()
+                        .floating(amplitude: 6, duration: 3)
 
                     VStack(spacing: Spacing.sm) {
                         Text("永恆之環")
