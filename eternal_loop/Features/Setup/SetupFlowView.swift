@@ -28,8 +28,9 @@ struct SetupFlowView: View {
                     currentStep = 3
                 }
             case 3:
-                Text("QR Code View - Coming Next")
-                    .foregroundColor(.appTextPrimary)
+                QRGeneratorView(sessionId: UUID()) {
+                    // TODO: Navigate to ceremony
+                }
             default:
                 EmptyView()
             }
