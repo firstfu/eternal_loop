@@ -10,46 +10,71 @@ struct RingCardView: View {
     let isSelected: Bool
     let onTap: () -> Void
 
+    private var ringColor: Color {
+        Color(hex: ring.previewColor) ?? .appAccentGold
+    }
+
     var body: some View {
         Button(action: onTap) {
-            VStack(spacing: Spacing.md) {
+            VStack(spacing: Spacing.sm) {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.appBackgroundDark)
-                        .frame(height: 120)
+                    // Ring glow effect
+                    Circle()
+                        .fill(
+                            RadialGradient(
+                                colors: [ringColor.opacity(0.3), .clear],
+                                center: .center,
+                                startRadius: 0,
+                                endRadius: 40
+                            )
+                        )
+                        .frame(width: 80, height: 80)
 
                     Image(systemName: "ring.circle.fill")
-                        .font(.system(size: 48))
+                        .font(.system(size: 40))
                         .foregroundStyle(
                             LinearGradient(
-                                colors: [.appAccentGold, .appAccent],
+                                colors: [ringColor, ringColor.opacity(0.7)],
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
                             )
                         )
                 }
+                .frame(height: 80)
 
-                Text(ring.displayName)
-                    .font(.bodyMedium)
-                    .foregroundColor(.appTextPrimary)
+                VStack(spacing: 4) {
+                    Text(ring.displayName)
+                        .font(.bodyMedium)
+                        .fontWeight(.medium)
+                        .foregroundColor(.appTextPrimary)
 
-                Circle()
-                    .fill(isSelected ? Color.appPrimary : Color.clear)
-                    .stroke(Color.appPrimaryLight, lineWidth: 2)
-                    .frame(width: 20, height: 20)
+                    Text(ring.description)
+                        .font(.appCaption)
+                        .foregroundColor(.appTextSecondary)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+                        .frame(height: 32)
+                }
+
+                // Selection indicator
+                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                    .font(.system(size: 20))
+                    .foregroundColor(isSelected ? .appPrimary : .appTextSecondary.opacity(0.5))
             }
             .padding(Spacing.md)
+            .frame(maxWidth: .infinity)
             .background(
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.appBackgroundDark.opacity(0.5))
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color.appBackgroundDark.opacity(0.6))
                     .overlay(
-                        RoundedRectangle(cornerRadius: 20)
+                        RoundedRectangle(cornerRadius: 16)
                             .stroke(
-                                isSelected ? Color.appPrimary : Color.clear,
-                                lineWidth: 2
+                                isSelected ? Color.appPrimary : Color.appPrimary.opacity(0.2),
+                                lineWidth: isSelected ? 2 : 1
                             )
                     )
             )
+            .scaleEffect(isSelected ? 1.02 : 1.0)
         }
         .buttonStyle(.plain)
         .accessibilityIdentifier("ringCard_\(ring.rawValue)")

@@ -114,6 +114,12 @@ class ModelLoader {
             return generateHaloLuxury()
         case .minimalistBand:
             return generateMinimalistBand()
+        case .roseGoldHeart:
+            return generateRoseGoldHeart()
+        case .eternityBand:
+            return generateEternityBand()
+        case .vintageArtDeco:
+            return generateVintageArtDeco()
         }
     }
 
@@ -203,6 +209,124 @@ class ModelLoader {
         band.orientation = simd_quatf(angle: .pi / 2, axis: SIMD3<Float>(1, 0, 0))
 
         return band
+    }
+
+    /// Rose gold heart - romantic rose gold with heart-shaped stone
+    private func generateRoseGoldHeart() -> ModelEntity {
+        // Rose gold band
+        let bandMesh = MeshResource.generateCylinder(height: 0.004, radius: 0.01)
+        let roseGoldMaterial = SimpleMaterial(
+            color: .init(red: 0.72, green: 0.43, blue: 0.47, alpha: 1.0),
+            roughness: 0.25,
+            isMetallic: true
+        )
+        let band = ModelEntity(mesh: bandMesh, materials: [roseGoldMaterial])
+        band.orientation = simd_quatf(angle: .pi / 2, axis: SIMD3<Float>(1, 0, 0))
+
+        // Heart-shaped stone (approximated with two spheres)
+        let heartMaterial = SimpleMaterial(
+            color: .init(red: 1.0, green: 0.75, blue: 0.8, alpha: 0.9),
+            roughness: 0.0,
+            isMetallic: false
+        )
+        let heartMesh = MeshResource.generateSphere(radius: 0.003)
+
+        let leftHeart = ModelEntity(mesh: heartMesh, materials: [heartMaterial])
+        leftHeart.position = SIMD3<Float>(-0.002, 0.005, 0)
+
+        let rightHeart = ModelEntity(mesh: heartMesh, materials: [heartMaterial])
+        rightHeart.position = SIMD3<Float>(0.002, 0.005, 0)
+
+        let ring = ModelEntity()
+        ring.addChild(band)
+        ring.addChild(leftHeart)
+        ring.addChild(rightHeart)
+
+        return ring
+    }
+
+    /// Eternity band - continuous diamonds around the band
+    private func generateEternityBand() -> ModelEntity {
+        // Silver/white gold band
+        let bandMesh = MeshResource.generateCylinder(height: 0.005, radius: 0.01)
+        let silverMaterial = SimpleMaterial(
+            color: .init(red: 0.75, green: 0.75, blue: 0.78, alpha: 1.0),
+            roughness: 0.15,
+            isMetallic: true
+        )
+        let band = ModelEntity(mesh: bandMesh, materials: [silverMaterial])
+        band.orientation = simd_quatf(angle: .pi / 2, axis: SIMD3<Float>(1, 0, 0))
+
+        // Diamonds around the band
+        let diamondMaterial = SimpleMaterial(
+            color: .init(white: 0.95, alpha: 0.9),
+            roughness: 0.0,
+            isMetallic: false
+        )
+        let diamondMesh = MeshResource.generateSphere(radius: 0.0015)
+
+        let ring = ModelEntity()
+        ring.addChild(band)
+
+        // Add 12 small diamonds around the band
+        let diamondRadius: Float = 0.011
+        for i in 0..<12 {
+            let angle = Float(i) * (.pi * 2 / 12)
+            let diamond = ModelEntity(mesh: diamondMesh, materials: [diamondMaterial])
+            diamond.position = SIMD3<Float>(
+                cos(angle) * diamondRadius,
+                0,
+                sin(angle) * diamondRadius
+            )
+            ring.addChild(diamond)
+        }
+
+        return ring
+    }
+
+    /// Vintage Art Deco - ornate vintage style with geometric patterns
+    private func generateVintageArtDeco() -> ModelEntity {
+        // Antique gold band
+        let bandMesh = MeshResource.generateCylinder(height: 0.006, radius: 0.01)
+        let antiqueGoldMaterial = SimpleMaterial(
+            color: .init(red: 0.81, green: 0.71, blue: 0.23, alpha: 1.0),
+            roughness: 0.35,
+            isMetallic: true
+        )
+        let band = ModelEntity(mesh: bandMesh, materials: [antiqueGoldMaterial])
+        band.orientation = simd_quatf(angle: .pi / 2, axis: SIMD3<Float>(1, 0, 0))
+
+        // Center emerald-cut stone (approximated with box)
+        let stoneMesh = MeshResource.generateBox(size: SIMD3<Float>(0.006, 0.004, 0.008))
+        let emeraldMaterial = SimpleMaterial(
+            color: .init(red: 0.31, green: 0.78, blue: 0.47, alpha: 0.85),
+            roughness: 0.0,
+            isMetallic: false
+        )
+        let centerStone = ModelEntity(mesh: stoneMesh, materials: [emeraldMaterial])
+        centerStone.position = SIMD3<Float>(0, 0.006, 0)
+
+        // Side accent stones
+        let accentMesh = MeshResource.generateSphere(radius: 0.0012)
+        let diamondMaterial = SimpleMaterial(
+            color: .init(white: 0.95, alpha: 0.9),
+            roughness: 0.0,
+            isMetallic: false
+        )
+
+        let leftAccent = ModelEntity(mesh: accentMesh, materials: [diamondMaterial])
+        leftAccent.position = SIMD3<Float>(-0.005, 0.004, 0)
+
+        let rightAccent = ModelEntity(mesh: accentMesh, materials: [diamondMaterial])
+        rightAccent.position = SIMD3<Float>(0.005, 0.004, 0)
+
+        let ring = ModelEntity()
+        ring.addChild(band)
+        ring.addChild(centerStone)
+        ring.addChild(leftAccent)
+        ring.addChild(rightAccent)
+
+        return ring
     }
 
     // MARK: - Model Management
