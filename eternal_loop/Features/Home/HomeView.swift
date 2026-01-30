@@ -75,7 +75,7 @@ struct HomeView: View {
                 }
             }
             .navigationDestination(isPresented: $navigateToSetup) {
-                Text("Setup Flow")
+                SetupFlowView()
             }
         }
     }
