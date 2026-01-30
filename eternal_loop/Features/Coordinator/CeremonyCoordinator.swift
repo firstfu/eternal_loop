@@ -12,12 +12,19 @@ class CeremonyCoordinator {
 
     enum Screen: Equatable {
         case home
+        case history
         case setup
         case qrCode
         case hostCeremony
         case guestCeremony
         case arExperience
         case certificate
+    }
+
+    // MARK: - History Navigation
+
+    func showHistory() {
+        currentScreen = .history
     }
 
     var currentScreen: Screen = .home
@@ -167,7 +174,7 @@ class CeremonyCoordinator {
 
     func goBack() {
         switch currentScreen {
-        case .setup:
+        case .history, .setup:
             currentScreen = .home
         case .qrCode:
             currentScreen = .setup

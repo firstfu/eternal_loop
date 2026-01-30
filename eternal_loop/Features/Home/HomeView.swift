@@ -11,8 +11,10 @@ struct HomeView: View {
     @Query(sort: \ProposalSession.createdAt, order: .reverse) private var sessions: [ProposalSession]
 
     var onStartSetup: (() -> Void)?
+    var onShowHistory: (() -> Void)?
 
     @State private var navigateToSetup = false
+    @State private var navigateToHistory = false
 
     var body: some View {
         NavigationStack {
@@ -70,7 +72,11 @@ struct HomeView: View {
 
                         if !sessions.isEmpty {
                             Button("查看過往紀念 →") {
-                                // TODO: Navigate to history
+                                if let onShowHistory = onShowHistory {
+                                    onShowHistory()
+                                } else {
+                                    navigateToHistory = true
+                                }
                             }
                             .font(.bodyMedium)
                             .foregroundColor(.appTextSecondary)
@@ -82,6 +88,9 @@ struct HomeView: View {
             }
             .navigationDestination(isPresented: $navigateToSetup) {
                 SetupFlowView(onComplete: nil, onBack: nil)
+            }
+            .navigationDestination(isPresented: $navigateToHistory) {
+                HistoryView()
             }
         }
     }

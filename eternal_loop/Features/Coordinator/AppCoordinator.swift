@@ -12,10 +12,19 @@ struct AppCoordinator: View {
         ZStack {
             switch coordinator.currentScreen {
             case .home:
-                HomeView(onStartSetup: {
-                    coordinator.startSetup()
-                })
+                HomeView(
+                    onStartSetup: {
+                        coordinator.startSetup()
+                    },
+                    onShowHistory: {
+                        coordinator.showHistory()
+                    }
+                )
                 .transition(.opacity)
+
+            case .history:
+                HistoryView()
+                    .transition(.move(edge: .trailing))
 
             case .setup:
                 SetupFlowView(

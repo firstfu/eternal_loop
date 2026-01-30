@@ -150,26 +150,9 @@ struct ARViewContainer: UIViewRepresentable {
         // Add ring entity
         let ringAnchor = AnchorEntity()
 
-        // Load ring model or create placeholder
-        if let ringEntity = try? Entity.load(named: ringType.modelFileName) {
-            ringEntity.scale = SIMD3<Float>(repeating: 0.01)
-            ringAnchor.addChild(ringEntity)
-        } else {
-            // Placeholder ring using simple cylinder geometry
-            // RealityKit doesn't have torus, so we use a thin cylinder as placeholder
-            let mesh = MeshResource.generateCylinder(
-                height: 0.005,
-                radius: 0.012
-            )
-            let material = SimpleMaterial(
-                color: .init(red: 1.0, green: 0.84, blue: 0, alpha: 1.0),
-                isMetallic: true
-            )
-            let ringEntity = ModelEntity(mesh: mesh, materials: [material])
-            // Rotate to lay flat like a ring
-            ringEntity.orientation = simd_quatf(angle: .pi / 2, axis: SIMD3<Float>(1, 0, 0))
-            ringAnchor.addChild(ringEntity)
-        }
+        // Load ring model using ModelLoader (handles fallback automatically)
+        let ringEntity = ModelLoader.shared.loadRingModel(for: ringType)
+        ringAnchor.addChild(ringEntity)
 
         arView.scene.addAnchor(ringAnchor)
         context.coordinator.ringAnchor = ringAnchor
