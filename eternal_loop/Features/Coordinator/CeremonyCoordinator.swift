@@ -127,6 +127,7 @@ class CeremonyCoordinator {
         ceremonyState.phase = .sending
         multipeerManager?.send(.ringSent)
         haptics.playRingSentImpact()
+        audioManager.playSoundEffect(.ringAppear)
 
         // Wait for guest to receive ring then transition to AR
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
@@ -139,6 +140,7 @@ class CeremonyCoordinator {
         ceremonyState.phase = .complete
         multipeerManager?.send(.ceremonyComplete)
         haptics.playRingAttachedCelebration()
+        audioManager.playSoundEffect(.success)
 
         // Transition to celebration music
         audioManager.transitionToCelebration()
@@ -200,6 +202,9 @@ class CeremonyCoordinator {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.ceremonyState.isConnected = true
+
+            // Play connection sound effect
+            self.audioManager.playSoundEffect(.connection)
 
             // Send session info to guest
             if self.isHost {
