@@ -1,0 +1,96 @@
+//
+//  HomeView.swift
+//  eternal_loop
+//
+
+import SwiftUI
+import SwiftData
+
+struct HomeView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: \ProposalSession.createdAt, order: .reverse) private var sessions: [ProposalSession]
+
+    var onStartSetup: (() -> Void)?
+    var onShowHistory: (() -> Void)?
+
+    @State private var navigateToSetup = false
+    @State private var navigateToHistory = false
+    @State private var showSettings = false
+
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                Color.appBackgroundDark
+                    .ignoresSafeArea()
+
+                VStack(spacing: Spacing.xxl) {
+                    Spacer()
+
+                    RingGlowView()
+                        .floating(amplitude: 6, duration: 3)
+
+                    VStack(spacing: Spacing.sm) {
+                        Text("永恆之環")
+                            .font(.headingLarge)
+                            .foregroundColor(.appTextPrimary)
+
+                        Text("Eternal Loop")
+                            .font(.bodyMedium)
+                            .foregroundColor(.appTextSecondary)
+                    }
+
+                    Spacer()
+
+                    VStack(spacing: Spacing.md) {
+                        PrimaryButton(title: "開始準備求婚") {
+                            if let onStartSetup = onStartSetup {
+                                onStartSetup()
+                            } else {
+                                navigateToSetup = true
+                            }
+                        }
+                        .accessibilityIdentifier("startProposalButton")
+
+                        if !sessions.isEmpty {
+                            Button("查看過往紀念 →") {
+                                if let onShowHistory = onShowHistory {
+                                    onShowHistory()
+                                } else {
+                                    navigateToHistory = true
+                                }
+                            }
+                            .font(.bodyMedium)
+                            .foregroundColor(.appTextSecondary)
+                        }
+                    }
+                    .padding(.horizontal, Spacing.xl)
+                    .padding(.bottom, Spacing.xxl)
+                }
+            }
+            .navigationDestination(isPresented: $navigateToSetup) {
+                SetupFlowView(onComplete: nil, onBack: nil)
+            }
+            .navigationDestination(isPresented: $navigateToHistory) {
+                HistoryView()
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showSettings = true
+                    } label: {
+                        Image(systemName: "gearshape")
+                            .foregroundColor(.appTextSecondary)
+                    }
+                }
+            }
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
+            }
+        }
+    }
+}
+
+#Preview {
+    HomeView()
+        .modelContainer(for: ProposalSession.self, inMemory: true)
+}
